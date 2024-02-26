@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Statistics } from './statistics/Statistics';
 import { Notification } from './notification/Notification';
 import { FeedbackOptions } from './feedbackoptions/FeedbackOptions';
+import PropTypes from 'prop-types';
 
 export const App = () => {
   const [feedback, setFeedback] = useState({
@@ -55,4 +56,14 @@ export const App = () => {
       )}
     </>
   );
+};
+App.propTypes = {
+  feedback: PropTypes.shape({
+    Good: PropTypes.number,
+    Neutral: PropTypes.number,
+    Bad: PropTypes.number,
+  }),
+  handleBtnClick: PropTypes.func,
+  countTotalFeedback: PropTypes.func,
+  countPositiveFeedbackPercentage: PropTypes.func,
 };

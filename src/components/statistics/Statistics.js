@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StatList = styled.ul`
   display: flex;
@@ -16,4 +17,11 @@ export const Statistics = props => {
       <li>Positive Feedback: {props.positivePercentage}%</li>
     </StatList>
   );
+};
+Statistics.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
 };

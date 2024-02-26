@@ -1,4 +1,5 @@
 import { FBtn } from 'components/button/button';
+import PropTypes from 'prop-types';
 
 export const FeedbackOptions = props => {
   return (
@@ -12,4 +13,9 @@ export const FeedbackOptions = props => {
       ))}
     </div>
   );
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.func,
 };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -9,20 +9,15 @@ const Button = styled.button`
   border-radius: 0.5rem;
 `;
 
-export class FBtn extends Component {
-  static defaultProps = { btnName: 'Nazwa' };
-
-  handleClick = () => {
-    this.props.onClick(this.props.btnName);
+export const FBtn = ({ btnName, onClick }) => {
+  const handleClick = () => {
+    onClick(btnName);
   };
 
-  render() {
-    const { btnName } = this.props;
-    return <Button onClick={this.handleClick}>{btnName}</Button>;
-  }
-}
+  return <Button onClick={handleClick}>{btnName}</Button>;
+};
 
 FBtn.propTypes = {
   btnName: PropTypes.oneOf(['Good', 'Neutral', 'Bad']),
-  step: PropTypes.number,
+  onClick: PropTypes.func.isRequired,
 };
